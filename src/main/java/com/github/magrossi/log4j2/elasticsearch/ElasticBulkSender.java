@@ -1,14 +1,14 @@
 package com.github.magrossi.log4j2.elasticsearch;
 
+import java.io.IOException;
+import java.util.Collections;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.client.HttpResponseException;
 import org.apache.http.entity.ContentType;
 import org.apache.http.nio.entity.NStringEntity;
 import org.elasticsearch.client.Response;
 import org.elasticsearch.client.RestClient;
-
-import java.io.IOException;
-import java.util.Collections;
 
 public class ElasticBulkSender implements BulkSender {
 

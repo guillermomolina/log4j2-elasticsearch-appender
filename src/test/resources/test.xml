@@ -21,9 +21,9 @@ limitations under the License.
         <Appender type="ElasticSearch" name="integration-test" maxBulkSize="0" maxDelayTime="0"
                   esIndex="es-appender-test-" esType="log">
             <!-- Multiple hosts are supported here -->
-            <Host type="HttpAddress" scheme="http" host="localhost" port="9200"/>
+            <Host type="HttpAddress" scheme="http" host="elasticsearch" port="9200"/>
         </Appender>
-        <!-- Shorter configuration as host defaults to [http://localhost:9200] -->
+        <!-- Shorter configuration as host defaults to [http://elasticsearch:9200] -->
         <Appender type="ElasticSearch" name="integration-test-after-5" maxBulkSize="5" maxDelayTime="0"
                   esIndex="es-appender-test-" esType="log">
             <Host type="HttpAddress"/>

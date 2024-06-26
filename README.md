@@ -1,7 +1,7 @@
 # ElasticSearch Log4j2 Appender
 
-[![Build Status](https://travis-ci.org/magrossi/es-log4j2-appender.svg?branch=master)](https://travis-ci.org/magrossi/es-log4j2-appender)
-[![Code Coverage](https://codecov.io/gh/magrossi/es-log4j2-appender/branch/master/graph/badge.svg)](https://codecov.io/gh/magrossi/es-log4j2-appender)
+[![Build Status](https://travis-ci.org/guillermomolina/log4j2-elasticsearch-appender.svg?branch=master)](https://travis-ci.org/guillermomolina/log4j2-elasticsearch-appender)
+[![Code Coverage](https://codecov.io/gh/guillermomolina/log4j2-elasticsearch-appender/branch/master/graph/badge.svg)](https://codecov.io/gh/guillermomolina/log4j2-elasticsearch-appender)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.magrossi/log4j2-elasticsearch-appender/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.magrossi/log4j2-elasticsearch-appender)
 
 An ElasticSearch REST appender for Log4j2

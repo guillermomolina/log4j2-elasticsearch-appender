@@ -1,6 +1,14 @@
 version: '3'
 
 services:
+  java:
+    image: mcr.microsoft.com/devcontainers/java:1-8-bullseye
+    volumes:
+      - .:/workspace:cached
+    command: sleep infinity
+    links:
+      - elasticsearch
+
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:5.4.3
     ports:

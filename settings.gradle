@@ -14,4 +14,4 @@
  *  limitations under the License.
  */
 
-rootProject.name = 'es-log4j2-appender'
+rootProject.name = 'log4j2-elasticsearch-appender'

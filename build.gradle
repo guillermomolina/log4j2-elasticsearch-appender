@@ -22,12 +22,12 @@ buildscript {
     repositories {
         mavenCentral()
         maven {
-            url 'https://dl.bintray.com/avast/maven/'
+            url '"https://plugins.gradle.org/m2/'
         }
     }
     dependencies {
         classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.11.0"
-        classpath "com.avast.gradle:gradle-docker-compose-plugin:0.9.3"
+//        classpath "com.avast.gradle:gradle-docker-compose-plugin:0.17.7"
         classpath "pl.allegro.tech.build:axion-release-plugin:1.10.1"
     }
 }
@@ -36,15 +36,15 @@ apply plugin: 'java'
 apply plugin: 'jacoco'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'docker-compose'
+// apply plugin: 'docker-compose'
 apply plugin: 'maven'
-apply plugin: 'signing'
+// apply plugin: 'signing'
 apply plugin: 'io.codearte.nexus-staging'
 apply plugin: 'pl.allegro.tech.build.axion-release'
 
 scmVersion {
     tag {
-        initialVersion = {config, position ->  "0.2.0" }
+        initialVersion = {config, position ->  "0.3.0" }
     }
 }
 
@@ -73,9 +73,9 @@ def snapshotRepo = project.hasProperty("ossrhSnapshotsRepo") ? ossrhSnapshotsRep
 def repoUser = project.hasProperty("ossrhUsername") ? ossrhUsername : System.getenv("ossrhUsername")
 def repoPwd = project.hasProperty("ossrhPassword") ? ossrhPassword : System.getenv("ossrhPassword")
 
-signing {
-    sign configurations.archives
-}
+// signing {
+//     sign configurations.archives
+// }
 
 if ("true" == System.getenv("TRAVIS")) {
     signArchives.enabled = false
@@ -89,7 +89,7 @@ jacocoTestReport {
 }
 
 check.dependsOn jacocoTestReport
-dockerCompose.isRequiredBy test
+// dockerCompose.isRequiredBy test
 
 task javadocJar(type: Jar) {
     classifier = 'javadoc'
@@ -122,12 +122,12 @@ uploadArchives {
                 name 'Log4J2 ElasticSearch REST Appender'
                 packaging 'jar'
                 description 'An ElasticSearch appender for Log4J2.'
-                url 'https://github.com/magrossi/es-log4j2-appender'
+                url 'https://github.com/guillermomolina/log4j2-elasticsearch-appender'
 
                 scm {
-                    connection 'scm:git:git@github.com:magrossi/es-log4j2-appender.git'
-                    developerConnection 'scm:git:git@github.com:magrossi/es-log4j2-appender.git'
-                    url 'git@github.com:magrossi/es-log4j2-appender.git'
+                    connection 'scm:git:git@github.com:guillermomolina/log4j2-elasticsearch-appender.git'
+                    developerConnection 'scm:git:git@github.com:guillermomolina/log4j2-elasticsearch-appender.git'
+                    url 'git@github.com:guillermomolina/log4j2-elasticsearch-appender.git'
                 }
 
                 licenses {
@@ -139,9 +139,9 @@ uploadArchives {
 
                 developers {
                     developer {
-                        id 'magrossi'
-                        name 'Marcelo Grossi'
-                        email 'magrossi@gmail.com'
+                        id 'guillermomolina'
+                        name 'Guillermo Adrián Molina'
+                        email 'guillermoadrianmolina@gmail.com'
                     }
                 }
             }

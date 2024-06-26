@@ -1,7 +1,15 @@
 package com.github.magrossi.log4j2.elasticsearch;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.apache.http.message.BasicHeader;
@@ -16,12 +24,8 @@ import org.elasticsearch.client.Response;
 import org.elasticsearch.client.RestClient;
 import org.junit.Test;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-
-import static org.junit.Assert.*;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ElasticSearchRestAppenderIT {
 
@@ -108,7 +112,7 @@ public class ElasticSearchRestAppenderIT {
         ElasticClient(Logger logger) {
             Map<String, Appender> appenders = logger.getAppenders();
             ElasticSearchRestAppender appender = (ElasticSearchRestAppender)appenders.get(appenders.keySet().iterator().next());
-            client = RestClient.builder(new HttpHost("localhost", 9200)).build();
+            client = RestClient.builder(new HttpHost("elasticsearch", 9200)).build();
             index = appender.getIndex();
             type = appender.getType();
         }

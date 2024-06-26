@@ -15,6 +15,24 @@
  */
 package com.github.magrossi.log4j2.elasticsearch;
 
+import static org.apache.logging.log4j.core.Appender.ELEMENT_TYPE;
+import static org.apache.logging.log4j.core.Core.CATEGORY_NAME;
+
+import java.io.Serializable;
+import java.nio.charset.Charset;
+import java.security.InvalidParameterException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.stream.Collectors;
+
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -34,19 +52,6 @@ import org.apache.logging.log4j.core.layout.JsonLayout;
 import org.apache.logging.log4j.util.Strings;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
-
-import java.io.Serializable;
-import java.nio.charset.Charset;
-import java.security.InvalidParameterException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.stream.Collectors;
-
-import static org.apache.logging.log4j.core.Appender.ELEMENT_TYPE;
-import static org.apache.logging.log4j.core.Core.CATEGORY_NAME;
 
 /**
  * Elastic REST Log4J2 appender that sends documents in bulk.
